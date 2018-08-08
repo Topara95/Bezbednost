@@ -95,16 +95,5 @@ export const bsep = {
             credentials: 'include'
     	})
     	.then(handleErrors)
-    },
-    makeCsrRequest: function(csrInfo){
-    	return fetch(`/api/csr`, {
-    		method: 'post',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify(csrInfo),
-            credentials: 'include'
-    	})
-    	.then(handleErrors)
     }
 }

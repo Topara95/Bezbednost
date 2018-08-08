@@ -12,17 +12,9 @@ window.onload = function generateNavbar(){
 	                    	<a class="nav-link" href="#">User `+user.username+` signed in</a>
 	                    </li>
 	                    <li class="nav-item">
-	                    	<a class="nav-link" href="csrrequest.html">Make certificate signing request</a>
-	                    </li>
-	                    <li class="nav-item">
 	                    	<a class="nav-link" id="signOut" href="#">Sign out</a>
 	                    </li>
 	                </ul>`
-	           if(user.userType == "ADMIN"){
-	        	   $("#regnav").append(`<li class="nav-item">
-	        			   <a class="nav-link" href="pendingcsr.html">View pending CSR</a>
-	        	   </li>`)
-	           }   	
     		}
     	},
     	error: function(){

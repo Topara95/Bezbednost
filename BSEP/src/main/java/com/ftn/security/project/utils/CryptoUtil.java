@@ -17,6 +17,7 @@ import org.bouncycastle.asn1.x500.X500NameBuilder;
 import org.bouncycastle.asn1.x500.style.BCStyle;
 
 import com.ftn.security.project.certificate.CertificateInfo;
+import com.ftn.security.project.certificate.CsrInfo;
 
 public class CryptoUtil {
 
@@ -33,6 +34,19 @@ public class CryptoUtil {
 			.addRDN(BCStyle.OU, certInfo.getOrganizationalUnitName())
 			.addRDN(BCStyle.C, certInfo.getCounrtyCode())
 			.addRDN(BCStyle.E, certInfo.getEmail())
+			.addRDN(BCStyle.UID, UUID.randomUUID().toString())
+			.build();
+    }
+    
+    public static X500Name generateX500NameCsr(CsrInfo csrInfo) {
+        return new X500NameBuilder(BCStyle.INSTANCE)
+			.addRDN(BCStyle.CN, csrInfo.getCommonName())
+			.addRDN(BCStyle.SURNAME, csrInfo.getSurname())
+			.addRDN(BCStyle.GIVENNAME, csrInfo.getGivenname())
+			.addRDN(BCStyle.O, csrInfo.getOrganization())
+			.addRDN(BCStyle.OU, csrInfo.getOrganizationalUnitName())
+			.addRDN(BCStyle.C, csrInfo.getCountryCode())
+			.addRDN(BCStyle.E, csrInfo.getEmail())
 			.addRDN(BCStyle.UID, UUID.randomUUID().toString())
 			.build();
     }

@@ -1,7 +1,12 @@
 package com.ftn.security.project;
 
+import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+
 import javax.annotation.PostConstruct;
 
+import org.bouncycastle.operator.OperatorCreationException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +27,7 @@ public class TestData {
 	private AccountReposity accrepository;
 	
 	@PostConstruct
-	private void init(){
+	private void init() throws NoSuchAlgorithmException, NoSuchProviderException, OperatorCreationException, IOException{
 		
 		ApplicationUserDTO au1 = new ApplicationUserDTO("jova","jova");
 		accservice.registerAccount(au1);
